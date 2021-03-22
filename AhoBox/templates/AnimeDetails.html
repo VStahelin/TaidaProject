@@ -1,130 +1,156 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<div class="wrapper ">
-    {% include 'partials/Menu.html' %}
-    <div class="main-panel">
-        {% include 'partials/Nav.html' %}
-        <div class="content">
-            <div class="container-fluid">
-                <div class="row">
-                     <div class="col-md-4">
-                        <div class="card card-profile">
-                            <div class="card-avatar">
-                                <a href="#pablo">
-                                    <img class="img" src="{% static 'img/faces/marc.jpg'%}"/>
-                                </a>
-                            </div>
-                            <div class="card-body">
-                                <h6 class="card-category">CEO / Co-Founder</h6>
-                                <h4 class="card-title">Alec Thompson</h4>
-                                <p class="card-description">
-                                    Don't be scared of the truth because we need to restart the human foundation in
-                                    truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the
-                                    back is...
-                                </p>
-                                <a href="#pablo" class="btn btn-primary btn-round">Follow</a>
+    <div class="wrapper ">
+        {% include 'partials/Menu.html' %}
+        <div class="main-panel">
+            {% include 'partials/Nav.html' %}
+            <div class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="card card-profile">
+                                <div class="card-header card-header-warning">
+                                    <img class="img" src="https://cdn.myanimelist.net/images/anime/11/33657.jpg"/>
+                                </div>
+                                <div class="card-body">
+                                    <h6 class="card-category">Mad House</h6>
+                                    <h4 class="card-title">Hunter x Hunter (2011)</h4>
+                                    <div class="card-description">
+                                        <div class="card-body table-responsive">
+                                            <table class="table table-hover">
+                                                <thead class="text-warning">
+                                                <th>Language</th>
+                                                <th>Title</th>
+                                                </thead>
+                                                <tbody>
+                                                <tr>
+                                                    <td>English</td>
+                                                    <td>Hunter x Hunter</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Japanese</td>
+                                                    <td>ハンター×ハンター</td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <a href="#pablo" class="btn btn-primary btn-round">Add to list</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card">
-                            <div class="card-header card-header-primary">
-                                <h4 class="card-title">Edit Profile</h4>
-                                <p class="card-category">Complete your profile</p>
+                        <div class="col-md-9">
+                            <div class="row">
+                                <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
+                                    <div class="card card-stats">
+                                        <div class="card-header card-header-success card-header-icon">
+                                            <div class="card-icon">
+                                                <i class="material-icons">trending_up</i>
+                                            </div>
+                                            <p class="card-category">Rank</p>
+                                            <h3 class="card-title text-light">6</h3>
+                                        </div>
+                                        <div class="card-footer">
+                                            <div class="stats">
+                                                <i class="material-icons">map</i> Global
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-4 col-lg-8 col-md-8 col-sm-8">
+                                    <div class="card card-stats">
+                                        <div class="card-header card-header-warning card-header-icon">
+                                            <div class="card-icon">
+                                                <i class="material-icons">reset_tv</i>
+                                            </div>
+                                            <p class="card-category">Episodes</p>
+                                            <h3 class="card-title text-light">148
+                                            </h3>
+                                        </div>
+                                        <div class="card-footer">
+                                            <div class="stats">
+                                                <i class="material-icons">date_range</i> Finished Airing
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
+                                    <div class="card card-stats">
+                                        <div class="card-header card-header-info card-header-icon">
+                                            <div class="card-icon">
+                                                <i class="material-icons">score</i>
+                                            </div>
+                                            <p class="card-category">Score</p>
+                                            <h3 class="card-title text-light">9.09</h3>
+                                        </div>
+                                        <div class="card-footer">
+                                            <div class="stats">
+                                                <i class="material-icons">how_to_vote</i>1018632 votes
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="card-body">
-                                <form>
-                                    <div class="row">
-                                        <div class="col-md-5">
-                                            <div class="form-group">
-                                                <label class="bmd-label-floating">Company (disabled)</label>
-                                                <input type="text" class="form-control" disabled>
-                                            </div>
+                            <div class="row">
+                                <div class="card">
+                                    <div class="card-header card-header-primary">
+                                        <h4 class="card-title">Synopsis</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="text-center">
+                                            <button type="button" class="btn btn-primary">Action</button>
+                                            <button type="button" class="btn btn-info">Adventure</button>
+                                            <button type="button" class="btn btn-success">Fantasy</button>
+                                            <button type="button" class="btn btn-danger">Shounen</button>
+                                            <button type="button" class="btn btn-warning">Super Power</button>
                                         </div>
-                                        <div class="col-md-3">
-                                            <div class="form-group">
-                                                <label class="bmd-label-floating">Username</label>
-                                                <input type="text" class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label class="bmd-label-floating">Email address</label>
-                                                <input type="email" class="form-control">
-                                            </div>
+                                        </br>
+                                        <p class="card-description text-light">
+                                            Hunter x Hunter is set in a world where Hunters exist to perform all manner
+                                            of dangerous tasks like capturing criminals and bravely searching for lost
+                                            treasures in uncharted territories. Twelve-year-old Gon Freecss is
+                                            determined to become the best Hunter possible in hopes of finding his
+                                            father, who was a Hunter himself and had long ago abandoned his young son.
+                                            However, Gon soon realizes the path to achieving his goals is far more
+                                            challenging than he could have ever imagined. Along the way to becoming an
+                                            official Hunter, Gon befriends the lively doctor-in-training Leorio,
+                                            vengeful Kurapika, and rebellious ex-assassin Killua. To attain their own
+                                            goals and desires, together the four of them take the Hunter Exam, notorious
+                                            for its low success rate and high probability of death. Throughout their
+                                            journey, Gon and his friends embark on an adventure that puts them through
+                                            many hardships and struggles. They will meet a plethora of monsters,
+                                            creatures, and characters—all while learning what being a Hunter truly
+                                            means. [Written by MAL Rewrite
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="card">
+                                    <div class="card-header card-header-primary">
+                                        <h4 class="card-title">Trailer</h4>
+                                    </div>
+                                    <div class="card-body text-center">
+                                        <div>
+                                            <iframe class="responsive-iframe" width="560" height="315"
+                                                    src="https://www.youtube.com/embed/D9iTQRB4XRk" frameborder="0"
+                                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                                    allowfullscreen></iframe>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label class="bmd-label-floating">Fist Name</label>
-                                                <input type="text" class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label class="bmd-label-floating">Last Name</label>
-                                                <input type="text" class="form-control">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label class="bmd-label-floating">Adress</label>
-                                                <input type="text" class="form-control">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label class="bmd-label-floating">City</label>
-                                                <input type="text" class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label class="bmd-label-floating">Country</label>
-                                                <input type="text" class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label class="bmd-label-floating">Postal Code</label>
-                                                <input type="text" class="form-control">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label>About Me</label>
-                                                <div class="form-group">
-                                                    <label class="bmd-label-floating"> Lamborghini Mercy, Your chick she
-                                                        so thirsty, I'm in that two seat Lambo.</label>
-                                                    <textarea class="form-control" rows="5"></textarea>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <button type="submit" class="btn btn-primary pull-right">Update Profile</button>
-                                    <div class="clearfix"></div>
-                                </form>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                {% include 'partials/Footer.html' %}
+                <script>
+                    const x = new Date().getFullYear();
+                    let date = document.getElementById('date');
+                    date.innerHTML = '&copy; ' + x + date.innerHTML;
+                </script>
             </div>
         </div>
-        {% include 'partials/Footer.html' %}
-        <script>
-            const x = new Date().getFullYear();
-            let date = document.getElementById('date');
-            date.innerHTML = '&copy; ' + x + date.innerHTML;
-        </script>
-    </div>
-</div>
-{#{% include 'partials/ConfigTest.html' %}#}
+        {#{% include 'partials/ConfigTest.html' %}#}
 {% endblock %}
