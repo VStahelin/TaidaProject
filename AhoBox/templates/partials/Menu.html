@@ -1,7 +1,7 @@
 {% load static %}
 <div class="sidebar" data-color="purple" data-background-color="black" data-image="{% static '/img/sidebar-2.jpg' %}">
-    <div class="logo"><a class="simple-text logo-normal">
-        TaidaProject
+    <div class="logo"><a class="text-light simple-text logo-normal">
+        AhoBox
     </a></div>
     <div class="sidebar-wrapper">
         <ul class="nav">
@@ -11,14 +11,26 @@
                     <p>Dashboard</p>
                 </a>
             </li>
-            <li class="nav-item active ">
-                <a class="nav-link" href="./AnimeDetails.html">
+            <li class="nav-item" id="menu_search">
+                <a class="nav-link" href="{% url 'search' %}">
+                    <i class="material-icons">search</i>
+                    <p>Search</p>
+                </a>
+            </li>
+            <li class="nav-item" id="menu_lists">
+                <a class="nav-link" href="{% url 'lists' %}">
+                    <i class="material-icons">list</i>
+                    <p>Lists</p>
+                </a>
+            </li>
+            <li class="nav-item" id="menu_anime">
+                <a class="nav-link" href="#">
                     <i class="material-icons">tv</i>
                     <p>Anime</p>
                 </a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="./AnimeDetails.html">
+            <li class="nav-item" id="menu_manga">
+                <a class="nav-link" href="#">
                     <i class="material-icons">menu_book</i>
                     <p>Manga</p>
                 </a>
