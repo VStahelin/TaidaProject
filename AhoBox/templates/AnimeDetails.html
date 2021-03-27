@@ -132,10 +132,9 @@
                                         <h4 class="card-title">Trailer</h4>
                                     </div>
                                     <div class="card-body text-center">
-                                        <div>
-                                            <iframe class="responsive-iframe" width="560" height="315"
-                                                    src="https://www.youtube.com/embed/D9iTQRB4XRk" frameborder="0"
-                                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                        <div class="embed-responsive embed-responsive-16by9">
+                                            <iframe class="embed-responsive-item"
+                                                    src="https://www.youtube.com/embed/D9iTQRB4XRk"
                                                     allowfullscreen></iframe>
                                         </div>
                                     </div>
@@ -145,12 +144,10 @@
                     </div>
                 </div>
                 {% include 'partials/Footer.html' %}
-                <script>
-                    const x = new Date().getFullYear();
-                    let date = document.getElementById('date');
-                    date.innerHTML = '&copy; ' + x + date.innerHTML;
-                </script>
             </div>
         </div>
-        {#{% include 'partials/ConfigTest.html' %}#}
+        <script>
+            document.getElementById("menu_anime").classList.add('active');
+            document.getElementById("navbar_name").innerHTML = "Anime details";
+        </script>
 {% endblock %}
