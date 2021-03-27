@@ -1,0 +1,262 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="wrapper ">
+        {% include 'partials/Menu.html' %}
+        <div class="main-panel">
+            {% include 'partials/Nav.html' %}
+            <div class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="card card-profile">
+                                <div class="card-header card-header-warning">
+                                    <div class="card-category h6">Lista de: Josefino cabeca de balao</div>
+                                    <div class="card-title h3">Animes for watch alone</div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="card-description">
+                                        <p class="text-lg-center text-light">
+                                            Lorem Ipsum is simply dummy text of the printing and typesetting
+                                            industry. Lorem Ipsum has been the industry's standard dummy text ever
+                                            since the 1500s, when an unknown printer took a galley of type and
+                                            scrambled it to make a type specimen book.
+                                        </p>
+                                    </div>
+                                    <a href="#pablo" class="btn btn-primary btn-round">Add to list</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="row">
+                                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3">
+                                    <div class="card card-stats">
+                                        <div class="card-header card-header-success card-header-icon">
+                                            <div class="card-icon">
+                                                <i class="material-icons">list</i>
+                                            </div>
+                                            <p class="card-category text-light">Total itens</p>
+                                            <h3 class="card-title text-light">12</h3>
+                                        </div>
+                                        <div class="card-footer">
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3">
+                                    <div class="card card-stats">
+                                        <div class="card-header card-header-success card-header-icon">
+                                            <div class="card-icon">
+                                                <i class="material-icons">bookmark</i>
+                                            </div>
+                                            <p class="card-category text-light">To watch</p>
+                                            <h3 class="card-title text-light">5</h3>
+                                        </div>
+                                        <div class="card-footer">
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3">
+                                    <div class="card card-stats">
+                                        <div class="card-header card-header-success card-header-icon">
+                                            <div class="card-icon">
+                                                <i class="material-icons">remove_red_eye</i>
+                                            </div>
+                                            <p class="card-category text-light">Watching</p>
+                                            <h3 class="card-title text-light">2</h3>
+                                        </div>
+                                        <div class="card-footer">
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3">
+                                    <div class="card card-stats">
+                                        <div class="card-header card-header-success card-header-icon">
+                                            <div class="card-icon">
+                                                <i class="material-icons">bookmark_added</i>
+                                            </div>
+                                            <p class="card-category text-light">Watched</p>
+                                            <h3 class="card-title text-light">5</h3>
+                                        </div>
+                                        <div class="card-footer">
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="card">
+                                        <div class="card-header card-header-primary">
+                                            <h4 class="card-title">Filters</h4>
+                                        </div>
+                                        <div class="card-body text-center">
+                                            <form>
+                                                <div class="form-group">
+                                                    <label class="control-label text-light">Progress:</label>
+                                                    <div class="form-check form-check-radio form-check-inline">
+                                                        <label class="form-check-label">
+                                                            <input class="form-check-input" type="radio"
+                                                                   name="progressOptions"
+                                                                   id="progressOption1" value="all_itens">All
+                                                            <span class="circle">
+                                                            <span class="check"></span>
+                                                        </span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-check form-check-radio form-check-inline">
+                                                        <label class="form-check-label">
+                                                            <input class="form-check-input" type="radio"
+                                                                   name="progressOptions"
+                                                                   id="progressOption2" value="to_watch_itens">To watch
+                                                            <span class="circle">
+                                                            <span class="check"></span>
+                                                        </span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-check form-check-radio form-check-inline">
+                                                        <label class="form-check-label">
+                                                            <input class="form-check-input" type="radio"
+                                                                   name="progressOptions"
+                                                                   id="progressOption3" value="watching_itens"> Watching
+                                                            <span class="circle">
+                                                            <span class="check"></span>
+                                                        </span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-check form-check-radio form-check-inline">
+                                                        <label class="form-check-label">
+                                                            <input class="form-check-input" type="radio"
+                                                                   name="progressOptions"
+                                                                   id="progressOption4" value="watched_itens"> Watched
+                                                            <span class="circle">
+                                                            <span class="check"></span>
+                                                        </span>
+                                                        </label>
+                                                    </div>
+                                                    <label class="control-label text-light">Order By:</label>
+                                                    <div class="form-check form-check-radio form-check-inline">
+                                                        <label class="form-check-label">
+                                                            <input class="form-check-input" type="radio"
+                                                                   name="ordeByOptions"
+                                                                   id="ordeByOption1" value="recently_order"> Recently
+                                                            Added
+                                                            <span class="circle">
+                                                            <span class="check"></span>
+                                                        </span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-check form-check-radio form-check-inline">
+                                                        <label class="form-check-label">
+                                                            <input class="form-check-input" type="radio"
+                                                                   name="ordeByOptions"
+                                                                   id="ordeByOption2" value="first_order"> Frist Added
+                                                            <span class="circle">
+                                                            <span class="check"></span>
+                                                        </span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-check form-check-radio form-check-inline">
+                                                        <label class="form-check-label">
+                                                            <input class="form-check-input" type="radio"
+                                                                   name="ordeByOptions"
+                                                                   id="ordeByOption3" value="a_z_order"> A -> Z
+                                                            <span class="circle">
+                                                            <span class="check"></span>
+                                                        </span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-check form-check-radio form-check-inline">
+                                                        <label class="form-check-label">
+                                                            <input class="form-check-input" type="radio"
+                                                                   name="ordeByOptions"
+                                                                   id="ordeByOption4" value="z_a_order"> Z -> A
+                                                            <span class="circle">
+                                                            <span class="check"></span>
+                                                        </span>
+                                                        </label>
+                                                    </div>
+                                                    <button type="submit" class="btn btn-primary btn-round">
+                                                        <i class="material-icons">filter_list</i>
+                                                    </button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
+                            <div class="col">
+                                <div class="card card-stats">
+                                    <div class="card-header card-header-warning card-header-icon text-left">
+                                        <div class="card-profile">
+                                            <img class="img" src="https://cdn.myanimelist.net/images/anime/11/33657.jpg"
+                                                 style="max-width: 200px"/>
+                                        </div>
+                                        <div class="card-body text-center">
+                                            <div class="card-header">
+                                                <h4 class="card-category">Mad House</h4>
+                                                <h3 class="card-title text-light">Hunter x Hunter (2011)</h3>
+                                            </div>
+                                            <div class="">
+                                                <button type="button" class="btn btn-sm btn-primary"><span
+                                                        class="material-icons md-4">tag</span> Action
+                                                </button>
+                                                <button type="button" class="btn btn-sm btn-info"><span
+                                                        class="material-icons md-4">tag</span>Adventure
+                                                </button>
+                                                <button type="button" class="btn btn-sm btn-success"><span
+                                                        class="material-icons md-4">tag</span>Fantasy
+                                                </button>
+                                                <button type="button" class="btn btn-sm btn-danger"><span
+                                                        class="material-icons md-4">tag</span>Shounen
+                                                </button>
+                                                <button type="button" class="btn btn-sm btn-warning"><span
+                                                        class="material-icons md-4">tag</span>Super Power
+                                                </button>
+                                                </br>
+                                                </br>
+                                            </div>
+                                            <div class="">
+                                                <p class="text-lg-center text-light">
+                                                    Hunter x Hunter is set in a world where Hunters exist to perform all
+                                                    manner
+                                                    of dangerous tasks like capturing criminals and bravely searching
+                                                    for
+                                                    lost
+                                                    treasures in uncharted territories. Twelve-year-old Gon Freecss is
+                                                    determined to become ...
+                                                </p>
+                                            </div>
+                                            <div class="text-center">
+                                                <a type="button" class="btn btn-primary"
+                                                   href="{% url 'animeDetails' %}">Details</a>
+                                                <a type="button" class="btn btn-info">Add to list</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer">
+                                        <div class="stats">
+                                            <i class="material-icons">tv</i> Anime
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% include 'partials/Footer.html' %}
+        </div>
+    </div>
+    <script>
+        document.getElementById("menu_lists").classList.add('active');
+        document.getElementById("navbar_name").innerHTML = "List: Animes for watch alone";
+    </script>
+{% endblock %}

@@ -12,3 +12,17 @@ def test(request):
 
 def animeDetails(request):
     return render(request, 'AnimeDetails.html')
+
+
+def search(request):
+    return render(request, 'Search.html')
+
+
+def createList(request):
+    return render(request, 'CreateList.html')
+
+def lists(request):
+    return render(request, 'Lists.html')
+
+def listDetails(request):
+    return render(request, 'ListDetails.html')

@@ -1,0 +1,438 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="wrapper ">
+        {% include 'partials/Menu.html' %}
+        <div class="main-panel">
+            {% include 'partials/Nav.html' %}
+            <div class="content">
+                <!-- TODO: if para pesquisa -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card card-nav-expand">
+                            <div class="card-header card-header-warning">
+                                <p class="text-uppercase font-weight-bold">Search</p>
+                            </div>
+                            <div class="card-body text-center">
+                                <div class="input-group rounded">
+                                    <input type="search" class="form-control rounded" placeholder="Search"
+                                           aria-label="Search"
+                                           aria-describedby="search-addon"/>
+                                    <span class="input-group-text border-0" id="search-addon"> <span
+                                            class="material-icons md-4">search</span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
+                        <div class="col">
+                            <div class="card card-stats">
+                                <div class="card-header card-header-warning card-header-icon text-left">
+                                    <div class="card-profile">
+                                        <img class="img" src="https://cdn.myanimelist.net/images/anime/11/33657.jpg"
+                                             style="max-width: 200px"/>
+                                    </div>
+                                    <div class="card-body text-center">
+                                        <div class="card-header">
+                                            <h4 class="card-category">Mad House</h4>
+                                            <h3 class="card-title text-light">Hunter x Hunter (2011)</h3>
+                                        </div>
+                                        <div class="">
+                                            <button type="button" class="btn btn-sm btn-primary"><span
+                                                    class="material-icons md-4">tag</span> Action
+                                            </button>
+                                            <button type="button" class="btn btn-sm btn-info"><span
+                                                    class="material-icons md-4">tag</span>Adventure
+                                            </button>
+                                            <button type="button" class="btn btn-sm btn-success"><span
+                                                    class="material-icons md-4">tag</span>Fantasy
+                                            </button>
+                                            <button type="button" class="btn btn-sm btn-danger"><span
+                                                    class="material-icons md-4">tag</span>Shounen
+                                            </button>
+                                            <button type="button" class="btn btn-sm btn-warning"><span
+                                                    class="material-icons md-4">tag</span>Super Power
+                                            </button>
+                                            </br>
+                                            </br>
+                                        </div>
+                                        <div class="">
+                                            <p class="text-lg-center text-light">
+                                                Hunter x Hunter is set in a world where Hunters exist to perform all
+                                                manner
+                                                of dangerous tasks like capturing criminals and bravely searching for
+                                                lost
+                                                treasures in uncharted territories. Twelve-year-old Gon Freecss is
+                                                determined to become ...
+                                            </p>
+                                        </div>
+                                        <div class="text-center">
+                                            <a type="button" class="btn btn-primary"
+                                               href="{% url 'animeDetails' %}">Details</a>
+                                            <a type="button" class="btn btn-info">Add to list</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="stats">
+                                        <i class="material-icons">tv</i> Anime
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
+                        <div class="col">
+                            <div class="card card-stats">
+                                <div class="card-header card-header-warning card-header-icon text-left">
+                                    <div class="card-profile">
+                                        <img class="img" src="https://cdn.myanimelist.net/images/anime/11/33657.jpg"
+                                             style="max-width: 200px"/>
+                                    </div>
+                                    <div class="card-body text-center">
+                                        <div class="card-header">
+                                            <h4 class="card-category">Mad House</h4>
+                                            <h3 class="card-title text-light">Hunter x Hunter (2011)</h3>
+                                        </div>
+                                        <div class="">
+                                            <button type="button" class="btn btn-sm btn-primary"><span
+                                                    class="material-icons md-4">tag</span> Action
+                                            </button>
+                                            <button type="button" class="btn btn-sm btn-info"><span
+                                                    class="material-icons md-4">tag</span>Adventure
+                                            </button>
+                                            <button type="button" class="btn btn-sm btn-success"><span
+                                                    class="material-icons md-4">tag</span>Fantasy
+                                            </button>
+                                            <button type="button" class="btn btn-sm btn-danger"><span
+                                                    class="material-icons md-4">tag</span>Shounen
+                                            </button>
+                                            <button type="button" class="btn btn-sm btn-warning"><span
+                                                    class="material-icons md-4">tag</span>Super Power
+                                            </button>
+                                            </br>
+                                            </br>
+                                        </div>
+                                        <div class="">
+                                            <p class="text-lg-center text-light">
+                                                Hunter x Hunter is set in a world where Hunters exist to perform all
+                                                manner
+                                                of dangerous tasks like capturing criminals and bravely searching for
+                                                lost
+                                                treasures in uncharted territories. Twelve-year-old Gon Freecss is
+                                                determined to become ...
+                                            </p>
+                                        </div>
+                                        <div class="text-center">
+                                            <a type="button" class="btn btn-primary"
+                                               href="{% url 'animeDetails' %}">Details</a>
+                                            <a type="button" class="btn btn-info">Add to list</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="stats">
+                                        <i class="material-icons">tv</i> Anime
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
+                        <div class="col">
+                            <div class="card card-stats">
+                                <div class="card-header card-header-warning card-header-icon text-left">
+                                    <div class="card-profile">
+                                        <img class="img" src="https://cdn.myanimelist.net/images/anime/11/33657.jpg"
+                                             style="max-width: 200px"/>
+                                    </div>
+                                    <div class="card-body text-center">
+                                        <div class="card-header">
+                                            <h4 class="card-category">Mad House</h4>
+                                            <h3 class="card-title text-light">Hunter x Hunter (2011)</h3>
+                                        </div>
+                                        <div class="">
+                                            <button type="button" class="btn btn-sm btn-primary"><span
+                                                    class="material-icons md-4">tag</span> Action
+                                            </button>
+                                            <button type="button" class="btn btn-sm btn-info"><span
+                                                    class="material-icons md-4">tag</span>Adventure
+                                            </button>
+                                            <button type="button" class="btn btn-sm btn-success"><span
+                                                    class="material-icons md-4">tag</span>Fantasy
+                                            </button>
+                                            <button type="button" class="btn btn-sm btn-danger"><span
+                                                    class="material-icons md-4">tag</span>Shounen
+                                            </button>
+                                            <button type="button" class="btn btn-sm btn-warning"><span
+                                                    class="material-icons md-4">tag</span>Super Power
+                                            </button>
+                                            </br>
+                                            </br>
+                                        </div>
+                                        <div class="">
+                                            <p class="text-lg-center text-light">
+                                                Hunter x Hunter is set in a world where Hunters exist to perform all
+                                                manner
+                                                of dangerous tasks like capturing criminals and bravely searching for
+                                                lost
+                                                treasures in uncharted territories. Twelve-year-old Gon Freecss is
+                                                determined to become ...
+                                            </p>
+                                        </div>
+                                        <div class="text-center">
+                                            <a type="button" class="btn btn-primary"
+                                               href="{% url 'animeDetails' %}">Details</a>
+                                            <a type="button" class="btn btn-info">Add to list</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="stats">
+                                        <i class="material-icons">tv</i> Anime
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
+                        <div class="col">
+                            <div class="card card-stats">
+                                <div class="card-header card-header-warning card-header-icon text-left">
+                                    <div class="card-profile">
+                                        <img class="img" src="https://cdn.myanimelist.net/images/anime/11/33657.jpg"
+                                             style="max-width: 200px"/>
+                                    </div>
+                                    <div class="card-body text-center">
+                                        <div class="card-header">
+                                            <h4 class="card-category">Mad House</h4>
+                                            <h3 class="card-title text-light">Hunter x Hunter (2011)</h3>
+                                        </div>
+                                        <div class="">
+                                            <button type="button" class="btn btn-sm btn-primary"><span
+                                                    class="material-icons md-4">tag</span> Action
+                                            </button>
+                                            <button type="button" class="btn btn-sm btn-info"><span
+                                                    class="material-icons md-4">tag</span>Adventure
+                                            </button>
+                                            <button type="button" class="btn btn-sm btn-success"><span
+                                                    class="material-icons md-4">tag</span>Fantasy
+                                            </button>
+                                            <button type="button" class="btn btn-sm btn-danger"><span
+                                                    class="material-icons md-4">tag</span>Shounen
+                                            </button>
+                                            <button type="button" class="btn btn-sm btn-warning"><span
+                                                    class="material-icons md-4">tag</span>Super Power
+                                            </button>
+                                            </br>
+                                            </br>
+                                        </div>
+                                        <div class="">
+                                            <p class="text-lg-center text-light">
+                                                Hunter x Hunter is set in a world where Hunters exist to perform all
+                                                manner
+                                                of dangerous tasks like capturing criminals and bravely searching for
+                                                lost
+                                                treasures in uncharted territories. Twelve-year-old Gon Freecss is
+                                                determined to become ...
+                                            </p>
+                                        </div>
+                                        <div class="text-center">
+                                            <a type="button" class="btn btn-primary"
+                                               href="{% url 'animeDetails' %}">Details</a>
+                                            <a type="button" class="btn btn-info">Add to list</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="stats">
+                                        <i class="material-icons">tv</i> Anime
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
+                        <div class="col">
+                            <div class="card card-stats">
+                                <div class="card-header card-header-warning card-header-icon text-left">
+                                    <div class="card-profile">
+                                        <img class="img" src="https://cdn.myanimelist.net/images/anime/11/33657.jpg"
+                                             style="max-width: 200px"/>
+                                    </div>
+                                    <div class="card-body text-center">
+                                        <div class="card-header">
+                                            <h4 class="card-category">Mad House</h4>
+                                            <h3 class="card-title text-light">Hunter x Hunter (2011)</h3>
+                                        </div>
+                                        <div class="">
+                                            <button type="button" class="btn btn-sm btn-primary"><span
+                                                    class="material-icons md-4">tag</span> Action
+                                            </button>
+                                            <button type="button" class="btn btn-sm btn-info"><span
+                                                    class="material-icons md-4">tag</span>Adventure
+                                            </button>
+                                            <button type="button" class="btn btn-sm btn-success"><span
+                                                    class="material-icons md-4">tag</span>Fantasy
+                                            </button>
+                                            <button type="button" class="btn btn-sm btn-danger"><span
+                                                    class="material-icons md-4">tag</span>Shounen
+                                            </button>
+                                            <button type="button" class="btn btn-sm btn-warning"><span
+                                                    class="material-icons md-4">tag</span>Super Power
+                                            </button>
+                                            </br>
+                                            </br>
+                                        </div>
+                                        <div class="">
+                                            <p class="text-lg-center text-light">
+                                                Hunter x Hunter is set in a world where Hunters exist to perform all
+                                                manner
+                                                of dangerous tasks like capturing criminals and bravely searching for
+                                                lost
+                                                treasures in uncharted territories. Twelve-year-old Gon Freecss is
+                                                determined to become ...
+                                            </p>
+                                        </div>
+                                        <div class="text-center">
+                                            <a type="button" class="btn btn-primary"
+                                               href="{% url 'animeDetails' %}">Details</a>
+                                            <a type="button" class="btn btn-info">Add to list</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="stats">
+                                        <i class="material-icons">tv</i> Anime
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
+                        <div class="col">
+                            <div class="card card-stats">
+                                <div class="card-header card-header-warning card-header-icon text-left">
+                                    <div class="card-profile">
+                                        <img class="img" src="https://cdn.myanimelist.net/images/anime/11/33657.jpg"
+                                             style="max-width: 200px"/>
+                                    </div>
+                                    <div class="card-body text-center">
+                                        <div class="card-header">
+                                            <h4 class="card-category">Mad House</h4>
+                                            <h3 class="card-title text-light">Hunter x Hunter (2011)</h3>
+                                        </div>
+                                        <div class="">
+                                            <button type="button" class="btn btn-sm btn-primary"><span
+                                                    class="material-icons md-4">tag</span> Action
+                                            </button>
+                                            <button type="button" class="btn btn-sm btn-info"><span
+                                                    class="material-icons md-4">tag</span>Adventure
+                                            </button>
+                                            <button type="button" class="btn btn-sm btn-success"><span
+                                                    class="material-icons md-4">tag</span>Fantasy
+                                            </button>
+                                            <button type="button" class="btn btn-sm btn-danger"><span
+                                                    class="material-icons md-4">tag</span>Shounen
+                                            </button>
+                                            <button type="button" class="btn btn-sm btn-warning"><span
+                                                    class="material-icons md-4">tag</span>Super Power
+                                            </button>
+                                            </br>
+                                            </br>
+                                        </div>
+                                        <div class="">
+                                            <p class="text-lg-center text-light">
+                                                Hunter x Hunter is set in a world where Hunters exist to perform all
+                                                manner
+                                                of dangerous tasks like capturing criminals and bravely searching for
+                                                lost
+                                                treasures in uncharted territories. Twelve-year-old Gon Freecss is
+                                                determined to become ...
+                                            </p>
+                                        </div>
+                                        <div class="text-center">
+                                            <a type="button" class="btn btn-primary"
+                                               href="{% url 'animeDetails' %}">Details</a>
+                                            <a type="button" class="btn btn-info">Add to list</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="stats">
+                                        <i class="material-icons">tv</i> Anime
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
+                        <div class="col">
+                            <div class="card card-stats">
+                                <div class="card-header card-header-warning card-header-icon text-left">
+                                    <div class="card-profile">
+                                        <img class="img" src="https://cdn.myanimelist.net/images/anime/11/33657.jpg"
+                                             style="max-width: 200px"/>
+                                    </div>
+                                    <div class="card-body text-center">
+                                        <div class="card-header">
+                                            <h4 class="card-category">Mad House</h4>
+                                            <h3 class="card-title text-light">Hunter x Hunter (2011)</h3>
+                                        </div>
+                                        <div class="">
+                                            <button type="button" class="btn btn-sm btn-primary"><span
+                                                    class="material-icons md-4">tag</span> Action
+                                            </button>
+                                            <button type="button" class="btn btn-sm btn-info"><span
+                                                    class="material-icons md-4">tag</span>Adventure
+                                            </button>
+                                            <button type="button" class="btn btn-sm btn-success"><span
+                                                    class="material-icons md-4">tag</span>Fantasy
+                                            </button>
+                                            <button type="button" class="btn btn-sm btn-danger"><span
+                                                    class="material-icons md-4">tag</span>Shounen
+                                            </button>
+                                            <button type="button" class="btn btn-sm btn-warning"><span
+                                                    class="material-icons md-4">tag</span>Super Power
+                                            </button>
+                                            </br>
+                                            </br>
+                                        </div>
+                                        <div class="">
+                                            <p class="text-lg-center text-light">
+                                                Hunter x Hunter is set in a world where Hunters exist to perform all
+                                                manner
+                                                of dangerous tasks like capturing criminals and bravely searching for
+                                                lost
+                                                treasures in uncharted territories. Twelve-year-old Gon Freecss is
+                                                determined to become ...
+                                            </p>
+                                        </div>
+                                        <div class="text-center">
+                                            <a type="button" class="btn btn-primary"
+                                               href="{% url 'animeDetails' %}">Details</a>
+                                            <a type="button" class="btn btn-info">Add to list</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="stats">
+                                        <i class="material-icons">tv</i> Anime
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            {% include 'partials/Footer.html' %}
+        </div>
+    </div>
+    <script>
+        document.getElementById("menu_search").classList.add('active');
+        document.getElementById("navbar_name").innerHTML = "Search";
+    </script>
+{% endblock %}
