@@ -10,5 +10,5 @@ urlpatterns = [
     path('Search', views.search, name='search'),
     path('CreateList', views.createList, name='createList'),
     path('Lists', views.lists, name='lists'),
-    path('ListDetails', views.listDetails, name='listDetails')
+    path('ListDetails', views.listDetails, name='listDetails'),
 ]

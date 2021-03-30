@@ -1,28 +1,30 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 
 def dashboard(request):
-    return HttpResponse('<h1>AhoBox</h1>')
+    return render(request, 'main/Home.html')
 
 
 def test(request):
-    return render(request, 'base.html')
+    return render(request, 'main/Base.html')
 
 
 def animeDetails(request):
-    return render(request, 'AnimeDetails.html')
+    return render(request, 'anime/AnimeDetails.html')
 
 
 def search(request):
-    return render(request, 'Search.html')
+    return render(request, 'main/Search.html')
 
 
 def createList(request):
-    return render(request, 'CreateList.html')
+    return redirect('listDetails')
+
 
 def lists(request):
-    return render(request, 'Lists.html')
+    return render(request, 'lists/Lists.html')
+
 
 def listDetails(request):
-    return render(request, 'ListDetails.html')
+    return render(request, 'lists/ListDetails.html')
