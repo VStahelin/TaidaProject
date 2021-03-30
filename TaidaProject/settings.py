@@ -25,6 +25,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'AhoBox.apps.AhoboxConfig',
+    'Users.apps.UsersConfig',
 ]
 
 MIDDLEWARE = [
