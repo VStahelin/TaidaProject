@@ -1,0 +1,18 @@
+{% extends 'main/Base.html' %}
+{% load static %}
+{% block content %}
+    <div style="background-image: url('https://i.pinimg.com/originals/30/94/e0/3094e0fd1114787639e8e334a840ca02.jpg');">
+        <div class="wrapper wrapper-full-page">
+            <div class="col-8 ml-auto mr-auto ">
+                {% include 'partials/Navlogin.html' %}
+            </div>
+            <div class="page-header login-page header-filter ps" style="position: relative">
+                <div class="container-fluid content-center">
+                </div>
+            </div>
+        </div>
+    </div>
+        <script>
+        document.getElementById("nav_login").classList.add('active');
+    </script>
+{% endblock %}

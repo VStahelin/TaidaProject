@@ -1,0 +1,54 @@
+{% extends 'main/Base.html' %}
+{% load static %}
+{% block content %}
+    <div style="background-image: url('https://i.pinimg.com/originals/30/94/e0/3094e0fd1114787639e8e334a840ca02.jpg');">
+        <div class="wrapper wrapper-full-page">
+            <div class="col-8 ml-auto mr-auto ">
+                {% include 'partials/Navlogin.html' %}
+            </div>
+            <div class="page-header login-page header-filter ps" style="position: relative">
+                <div class="container-fluid content-center">
+                    <div class="row">
+                        <div class="col-lg-5 col-md-6 col-sm-8 ml-auto mr-auto">
+                            <form class="form" method="" action="">
+                                <div class="card card-login">
+                                    <div class="card-header card-header-rose text-center">
+                                        <h4 class="card-title">Login</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <span class="md-form-group">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">
+                                                        <i class="material-icons text-light">email</i>
+                                                    </span>
+                                                </div>
+                                                <input type="email" class="form-control" placeholder="Email...">
+                                            </div>
+                                        </span>
+                                        <span class="md-form-group">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">
+                                                        <i class="material-icons text-light">lock_outline</i>
+                                                    </span>
+                                                </div>
+                                                <input type="password" class="form-control" placeholder="Password...">
+                                            </div>
+                                        </span>
+                                    </div>
+                                    <div class="card-footer justify-content-center">
+                                        <a href="javascript:;" class="btn btn-rose text-light">Login</a>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <script>
+        document.getElementById("nav_login").classList.add('active');
+    </script>
+{% endblock %}
