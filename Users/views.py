@@ -5,17 +5,20 @@ from django.shortcuts import render, redirect
 from Users.forms import RegisterForm
 
 
-def register(request):
+def register(request, **kwargs):
+    form = RegisterForm()
+    context = {'form': form}
+
     if request.method == 'POST':
         form = RegisterForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect('lists')
         else:
-            return redirect('register')
-
-    form = UserCreationForm()
-    context = {'form': form}
+            for key, value in form.error_messages.items():
+                print(value)
+            context['error'] = value
+            return render(request, 'users/Register.html', context)
     return render(request, 'users/Register.html', context)
 
 

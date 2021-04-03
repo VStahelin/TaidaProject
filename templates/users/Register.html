@@ -2,8 +2,11 @@
 {% load static %}
 {% block content %}
     <div style="background-image: url('https://i.pinimg.com/originals/30/94/e0/3094e0fd1114787639e8e334a840ca02.jpg');">
+        <div class="d-lg-none">
+            {% include 'partials/MenuLogin.html' %}
+        </div>
         <div class="wrapper wrapper-full-page">
-            <div class="col-8 ml-auto mr-auto ">
+            <div class="col-8 ml-auto mr-auto">
                 {% include 'partials/Navlogin.html' %}
             </div>
             <div class="page-header login-page header-filter ps" style="position: relative">
@@ -17,7 +20,6 @@
                                         <h4 class="card-title">Register</h4>
                                     </div>
                                     <div class="text-light">
-{#                                        {{ form }}#}
                                     </div>
                                     <div class="card-body">
                                         <span class="md-form-group">
@@ -27,8 +29,7 @@
                                                         <i class="material-icons text-light">person</i>
                                                     </span>
                                                 </div>
-{#                                                <input type="email" class="form-control" placeholder="{{ form.username.label }}">#}
-                                                {{ form.username }}
+                                                {{ form.username }}{# id: id_username #}
                                             </div>
                                         </span>
                                         <span class="md-form-group">
@@ -38,7 +39,7 @@
                                                         <i class="material-icons text-light">email</i>
                                                     </span>
                                                 </div>
-                                                <input type="email" class="form-control" placeholder="Email...">
+                                                {{ form.email }}
                                             </div>
                                         </span>
                                         <span class="md-form-group">
@@ -48,7 +49,7 @@
                                                         <i class="material-icons text-light">lock_outline</i>
                                                     </span>
                                                 </div>
-                                                <input type="password" class="form-control" placeholder="Password...">
+                                                {{ form.password1 }}
                                             </div>
                                         </span>
                                         <span class="md-form-group">
@@ -58,8 +59,7 @@
                                                         <i class="material-icons text-light">lock_outline</i>
                                                     </span>
                                                 </div>
-                                                <input type="password" class="form-control"
-                                                       placeholder="Confirm Password...">
+                                                {{ form.password2 }}
                                             </div>
                                         </span>
                                     </div>
@@ -77,5 +77,20 @@
     </div>
     <script>
         document.getElementById("nav_login").classList.add('active');
+        document.getElementById("id_email").required = true;
+        {% if error %}
+            $.notify({
+                icon: "add_alert",
+                message: "{{ error }}"
+
+            }, {
+                type: 'warning',
+                timer: 3000,
+                placement: {
+                    from: 'top',
+                    align: 'right'
+                }
+            });
+        {% endif %}
     </script>
 {% endblock %}
