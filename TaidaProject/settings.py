@@ -13,7 +13,7 @@ SECRET_KEY = 'aghy94b+8cn-gm$-3k2)!_aovo+f8243wn@ya8wsa(t7^=8+@4'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.localhost', '127.0.0.1', '[::1]', '10.0.0.104']  # Configure this ip
 
 # Application definition
 
