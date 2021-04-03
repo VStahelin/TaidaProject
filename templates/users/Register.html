@@ -9,15 +9,15 @@
             <div class="page-header login-page header-filter ps" style="position: relative">
                 <div class="container-fluid content-center">
                     <div class="row">
-                        {{ form }}
-                    </div>
-                    <div class="row">
                         <div class="col-lg-5 col-md-6 col-sm-8 ml-auto mr-auto">
                             <form class="form" method="POST" action="{% url 'register' %}">
                                 {% csrf_token %}
                                 <div class="card card-login">
                                     <div class="card-header card-header-rose text-center">
                                         <h4 class="card-title">Register</h4>
+                                    </div>
+                                    <div class="text-light">
+{#                                        {{ form }}#}
                                     </div>
                                     <div class="card-body">
                                         <span class="md-form-group">
@@ -27,7 +27,8 @@
                                                         <i class="material-icons text-light">person</i>
                                                     </span>
                                                 </div>
-                                                <input type="email" class="form-control" placeholder="Name...">
+{#                                                <input type="email" class="form-control" placeholder="{{ form.username.label }}">#}
+                                                {{ form.username }}
                                             </div>
                                         </span>
                                         <span class="md-form-group">
@@ -63,7 +64,8 @@
                                         </span>
                                     </div>
                                     <div class="card-footer justify-content-center">
-                                        <button type="submit" class="btn btn-round btn-rose text-light">Register</button>
+                                        <button type="submit" class="btn btn-round btn-rose text-light">Register
+                                        </button>
                                     </div>
                                 </div>
                             </form>
