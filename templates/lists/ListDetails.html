@@ -207,8 +207,11 @@
                                 <div class="card card-stats">
                                     <div class="card-header card-header-warning card-header-icon text-left">
                                         <div class="card-profile">
-                                            <img class="img" src="https://cdn.myanimelist.net/images/anime/11/33657.jpg"
-                                                 style="max-width: 150px"/>
+                                            <a href="{% url 'animeDetails' %}">
+                                                <img class="img"
+                                                     src="https://cdn.myanimelist.net/images/anime/11/33657.jpg"
+                                                     style="max-width: 150px"/>
+                                            </a>
                                         </div>
                                         <div class="card-body text-center">
                                             <div class="card-header">
@@ -262,6 +265,10 @@
                                                         </button>
                                                     </div>
                                                 </form>
+                                            </div>
+                                            <div class="row justify-content-center">
+                                                <a type="button" class="btn btn-round btn-rose btn-sm"
+                                                   href="{% url 'animeDetails' %}">Details</a>
                                             </div>
                                         </div>
                                     </div>
