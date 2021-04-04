@@ -1,19 +1,13 @@
 {% load static %}
 <div class="sidebar" data-color="purple" data-background-color="black">
     <div class="logo">
-        <a class="text-light simple-text logo-normal">
+        <a class="text-light simple-text logo-normal" href="{% url 'home' %}">
             <img src="{% static 'img/faviconAho.png' %}" alt="logo" style="max-width:40px;height:auto;">
             	&nbsp; AhoBox
         </a>
     </div>
         <div class="sidebar-wrapper">
             <ul class="nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="">
-                        <i class="material-icons">dashboard</i>
-                        <p>Dashboard</p>
-                    </a>
-                </li>
                 <li class="nav-item" id="menu_search">
                     <a class="nav-link" href="{% url 'search' %}">
                         <i class="material-icons">search</i>
@@ -29,13 +23,13 @@
                 <li class="nav-item" id="menu_anime">
                     <a class="nav-link" href="#">
                         <i class="material-icons">tv</i>
-                        <p>Anime</p>
+                        <p>Animes</p>
                     </a>
                 </li>
                 <li class="nav-item" id="menu_manga">
                     <a class="nav-link" href="#">
                         <i class="material-icons">menu_book</i>
-                        <p>Manga</p>
+                        <p>Mangas</p>
                     </a>
                 </li>
             </ul>

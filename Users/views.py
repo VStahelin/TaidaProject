@@ -5,7 +5,7 @@ from django.shortcuts import render, redirect
 from Users.forms import RegisterForm
 
 
-def registerPage(request, **kwargs):
+def registerPage(request):
     form = RegisterForm()
     context = {'form': form}
 
@@ -21,6 +21,9 @@ def registerPage(request, **kwargs):
                 print(value)
             context['error'] = value
             return render(request, 'users/Register.html', context)
+
+    if request.user.is_authenticated:
+        logout(request)
     return render(request, 'users/Register.html', context)
 
 
@@ -37,7 +40,11 @@ def loginPage(request):
         else:
             messages.info(request, 'Username or password is incorrect')
             return render(request, 'users/Login.html')
-    return render(request, 'users/Login.html')
+
+    if request.user.is_authenticated:
+        return redirect('lists')
+    else:
+        return render(request, 'users/Login.html')
 
 
 def logoutPage(request):
