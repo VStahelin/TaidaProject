@@ -1,3 +1,6 @@
+# https://github.com/abhinavk99/jikanpy
+# https://jikanpy.readthedocs.io/en/latest/
+
 a = {
     'request_hash': 'request:anime:e09f711f9e532dc4ffb4d5649b5dbd6e0fb25648',
     'request_cached': True,
