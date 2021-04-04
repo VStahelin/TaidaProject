@@ -13,7 +13,8 @@
                 <div class="container-fluid content-center">
                     <div class="row">
                         <div class="col-lg-5 col-md-6 col-sm-8 ml-auto mr-auto">
-                            <form class="form" method="" action="">
+                            <form class="form" method="POST" action="{% url 'login' %}">
+                                {% csrf_token %}
                                 <div class="card card-login">
                                     <div class="card-header card-header-rose text-center">
                                         <h4 class="card-title">Login</h4>
@@ -23,10 +24,11 @@
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text">
-                                                        <i class="material-icons text-light">email</i>
+                                                        <i class="material-icons text-light">perm_identity</i>
                                                     </span>
                                                 </div>
-                                                <input type="email" class="form-control" placeholder="Email...">
+                                                <input type="text" name="username" class="form-control"
+                                                       placeholder="Username">
                                             </div>
                                         </span>
                                         <span class="md-form-group">
@@ -36,12 +38,13 @@
                                                         <i class="material-icons text-light">lock_outline</i>
                                                     </span>
                                                 </div>
-                                                <input type="password" class="form-control" placeholder="Password...">
+                                                <input type="password" name="password" class="form-control"
+                                                       placeholder="Password">
                                             </div>
                                         </span>
                                     </div>
                                     <div class="card-footer justify-content-center">
-                                        <a href="javascript:;" class="btn btn-rose text-light">Login</a>
+                                        <button type="submit" class="btn btn-round btn-rose text-light">Login</button>
                                     </div>
                                 </div>
                             </form>
@@ -53,5 +56,26 @@
     </div>
     <script>
         document.getElementById("nav_login").classList.add('active');
+        {% if messages %}
+            {% for message in messages %}
+                $.notify({
+                    icon: "info",
+                    message: "{{ message }}"
+
+                }, {
+                    {% if message.level_tag == 'info' %}
+                        type: 'warning ',
+                    {% else %}
+                        type: 'success',
+                    {% endif %}
+                    timer: 3000,
+                    placement: {
+                        from: 'top',
+                        align: 'right'
+                    }
+                });
+            {% endfor %}
+        {% endif %}
+
     </script>
 {% endblock %}
