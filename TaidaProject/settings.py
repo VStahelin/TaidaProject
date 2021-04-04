@@ -26,6 +26,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'AhoBox.apps.AhoboxConfig',
     'Users.apps.UsersConfig',
+    'Anime.apps.AnimeConfig',
+    'Studio.apps.StudioConfig',
+    'Genres.apps.GenresConfig',
 ]
 
 MIDDLEWARE = [
