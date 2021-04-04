@@ -6,425 +6,89 @@
         <div class="main-panel">
             {% include 'partials/Nav.html' %}
             <div class="content">
-                <!-- TODO: if para pesquisa -->
                 <div class="row">
                     <div class="col-12">
                         <div class="card card-nav-expand">
                             <div class="card-header card-header-warning h3">Finder</div>
                             <div class="card-body text-center">
-                                <div class="input-group rounded">
-                                    <input type="search" class="form-control rounded" placeholder="Search"
-                                           aria-label="Search"
-                                           aria-describedby="search-addon"/>
-                                    <span class="input-group-text border-0" id="search-addon"> <span
-                                            class="material-icons md-4">search</span></span>
-                                </div>
+                                <form class="form" method="POST" action="{% url 'search' %}">
+                                    {% csrf_token %}
+                                    <div class="input-group rounded">
+                                        <div class="col-sm-12">
+                                            <input type="text" name="search_field" class="form-control rounded"
+                                                   placeholder="Search"
+                                                   aria-label="Search" aria-describedby="search-addon" required/>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <div class="form-check form-check-radio form-check-inline">
+                                                <label class="form-check-label">
+                                                    <input class="form-check-input" type="radio" name="typeOptions"
+                                                           value="anime" required>
+                                                    Anime
+                                                    <span class="circle"><span class="check"></span></span>
+                                                </label>
+                                            </div>
+                                            <div class="form-check form-check-radio form-check-inline">
+                                                <label class="form-check-label">
+                                                    <input class="form-check-input" type="radio" name="typeOptions"
+                                                           value="manga">
+                                                    Manga
+                                                    <span class="circle"><span class="check"></span></span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12 justify-content-center">
+                                            <button type="submit" class="btn btn-round btn-rose btn-sm"
+                                                    href="{% url 'animeDetails' %}">Search
+                                            </button>
+                                            </button>
+                                        </div>
+                                    </div>
                             </div>
                         </div>
+                        </form>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
-                        <div class="col">
-                            <div class="card card-stats">
-                                <div class="card-header card-header-warning card-header-icon text-left">
-                                    <div class="card-profile">
-                                        <img class="img" src="https://cdn.myanimelist.net/images/anime/11/33657.jpg"
-                                             style="max-width: 200px"/>
-                                    </div>
-                                    <div class="card-body text-center">
-                                        <div class="card-header">
-                                            <h4 class="card-category">Mad House</h4>
-                                            <h3 class="card-title text-light">Hunter x Hunter (2011)</h3>
+                    {% for anime in result %}
+                        <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
+                            <div class="col">
+                                <div class="card card-stats">
+                                    <div class="card-header card-header-warning card-header-icon text-left">
+                                        <div class="card-profile">
+                                            <img class="img" src="{{ anime.image_url }}"
+                                                 style="max-width: 200px"/>
                                         </div>
-                                        <div class="">
-                                            <button type="button" class="btn btn-sm btn-primary"><span
-                                                    class="material-icons md-4">tag</span> Action
-                                            </button>
-                                            <button type="button" class="btn btn-sm btn-info"><span
-                                                    class="material-icons md-4">tag</span>Adventure
-                                            </button>
-                                            <button type="button" class="btn btn-sm btn-success"><span
-                                                    class="material-icons md-4">tag</span>Fantasy
-                                            </button>
-                                            <button type="button" class="btn btn-sm btn-danger"><span
-                                                    class="material-icons md-4">tag</span>Shounen
-                                            </button>
-                                            <button type="button" class="btn btn-sm btn-warning"><span
-                                                    class="material-icons md-4">tag</span>Super Power
-                                            </button>
-                                            </br>
-                                            </br>
-                                        </div>
-                                        <div class="">
-                                            <p class="text-lg-center text-light">
-                                                Hunter x Hunter is set in a world where Hunters exist to perform all
-                                                manner
-                                                of dangerous tasks like capturing criminals and bravely searching for
-                                                lost
-                                                treasures in uncharted territories. Twelve-year-old Gon Freecss is
-                                                determined to become ...
-                                            </p>
-                                        </div>
-                                        <div class="text-center">
-                                            <a type="button" class="btn btn-primary"
-                                               href="{% url 'animeDetails' %}">Details</a>
-                                            <a type="button" class="btn btn-info">Add to list</a>
+                                        <div class="card-body text-center">
+                                            <div class="card-header">
+                                                <h3 class="card-title text-light">{{ anime.title }}</h3>
+                                            </div>
+                                            <div class="">
+                                                <p class="text-lg-center text-light">
+                                                    {% if not anime.synopsis %}
+                                                        Synopsis unavailable
+                                                    {% else %}
+                                                        {{ anime.synopsis }}
+                                                    {% endif %}
+                                                </p>
+                                            </div>
+                                            <div class="text-center">
+                                                <a type="button" class="btn btn-primary"
+                                                   href="{% url 'animeDetails' %}">Details</a>
+                                                <a type="button" class="btn btn-info">Add to list</a>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="card-footer">
-                                    <div class="stats">
-                                        <i class="material-icons">tv</i> Anime
+                                    <div class="card-footer">
+                                        <div class="stats">
+                                            <i class="material-icons">tv</i> Anime
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
-                        <div class="col">
-                            <div class="card card-stats">
-                                <div class="card-header card-header-warning card-header-icon text-left">
-                                    <div class="card-profile">
-                                        <img class="img" src="https://cdn.myanimelist.net/images/anime/11/33657.jpg"
-                                             style="max-width: 200px"/>
-                                    </div>
-                                    <div class="card-body text-center">
-                                        <div class="card-header">
-                                            <h4 class="card-category">Mad House</h4>
-                                            <h3 class="card-title text-light">Hunter x Hunter (2011)</h3>
-                                        </div>
-                                        <div class="">
-                                            <button type="button" class="btn btn-sm btn-primary"><span
-                                                    class="material-icons md-4">tag</span> Action
-                                            </button>
-                                            <button type="button" class="btn btn-sm btn-info"><span
-                                                    class="material-icons md-4">tag</span>Adventure
-                                            </button>
-                                            <button type="button" class="btn btn-sm btn-success"><span
-                                                    class="material-icons md-4">tag</span>Fantasy
-                                            </button>
-                                            <button type="button" class="btn btn-sm btn-danger"><span
-                                                    class="material-icons md-4">tag</span>Shounen
-                                            </button>
-                                            <button type="button" class="btn btn-sm btn-warning"><span
-                                                    class="material-icons md-4">tag</span>Super Power
-                                            </button>
-                                            </br>
-                                            </br>
-                                        </div>
-                                        <div class="">
-                                            <p class="text-lg-center text-light">
-                                                Hunter x Hunter is set in a world where Hunters exist to perform all
-                                                manner
-                                                of dangerous tasks like capturing criminals and bravely searching for
-                                                lost
-                                                treasures in uncharted territories. Twelve-year-old Gon Freecss is
-                                                determined to become ...
-                                            </p>
-                                        </div>
-                                        <div class="text-center">
-                                            <a type="button" class="btn btn-primary"
-                                               href="{% url 'animeDetails' %}">Details</a>
-                                            <a type="button" class="btn btn-info">Add to list</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card-footer">
-                                    <div class="stats">
-                                        <i class="material-icons">tv</i> Anime
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
-                        <div class="col">
-                            <div class="card card-stats">
-                                <div class="card-header card-header-warning card-header-icon text-left">
-                                    <div class="card-profile">
-                                        <img class="img" src="https://cdn.myanimelist.net/images/anime/11/33657.jpg"
-                                             style="max-width: 200px"/>
-                                    </div>
-                                    <div class="card-body text-center">
-                                        <div class="card-header">
-                                            <h4 class="card-category">Mad House</h4>
-                                            <h3 class="card-title text-light">Hunter x Hunter (2011)</h3>
-                                        </div>
-                                        <div class="">
-                                            <button type="button" class="btn btn-sm btn-primary"><span
-                                                    class="material-icons md-4">tag</span> Action
-                                            </button>
-                                            <button type="button" class="btn btn-sm btn-info"><span
-                                                    class="material-icons md-4">tag</span>Adventure
-                                            </button>
-                                            <button type="button" class="btn btn-sm btn-success"><span
-                                                    class="material-icons md-4">tag</span>Fantasy
-                                            </button>
-                                            <button type="button" class="btn btn-sm btn-danger"><span
-                                                    class="material-icons md-4">tag</span>Shounen
-                                            </button>
-                                            <button type="button" class="btn btn-sm btn-warning"><span
-                                                    class="material-icons md-4">tag</span>Super Power
-                                            </button>
-                                            </br>
-                                            </br>
-                                        </div>
-                                        <div class="">
-                                            <p class="text-lg-center text-light">
-                                                Hunter x Hunter is set in a world where Hunters exist to perform all
-                                                manner
-                                                of dangerous tasks like capturing criminals and bravely searching for
-                                                lost
-                                                treasures in uncharted territories. Twelve-year-old Gon Freecss is
-                                                determined to become ...
-                                            </p>
-                                        </div>
-                                        <div class="text-center">
-                                            <a type="button" class="btn btn-primary"
-                                               href="{% url 'animeDetails' %}">Details</a>
-                                            <a type="button" class="btn btn-info">Add to list</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card-footer">
-                                    <div class="stats">
-                                        <i class="material-icons">tv</i> Anime
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
-                        <div class="col">
-                            <div class="card card-stats">
-                                <div class="card-header card-header-warning card-header-icon text-left">
-                                    <div class="card-profile">
-                                        <img class="img" src="https://cdn.myanimelist.net/images/anime/11/33657.jpg"
-                                             style="max-width: 200px"/>
-                                    </div>
-                                    <div class="card-body text-center">
-                                        <div class="card-header">
-                                            <h4 class="card-category">Mad House</h4>
-                                            <h3 class="card-title text-light">Hunter x Hunter (2011)</h3>
-                                        </div>
-                                        <div class="">
-                                            <button type="button" class="btn btn-sm btn-primary"><span
-                                                    class="material-icons md-4">tag</span> Action
-                                            </button>
-                                            <button type="button" class="btn btn-sm btn-info"><span
-                                                    class="material-icons md-4">tag</span>Adventure
-                                            </button>
-                                            <button type="button" class="btn btn-sm btn-success"><span
-                                                    class="material-icons md-4">tag</span>Fantasy
-                                            </button>
-                                            <button type="button" class="btn btn-sm btn-danger"><span
-                                                    class="material-icons md-4">tag</span>Shounen
-                                            </button>
-                                            <button type="button" class="btn btn-sm btn-warning"><span
-                                                    class="material-icons md-4">tag</span>Super Power
-                                            </button>
-                                            </br>
-                                            </br>
-                                        </div>
-                                        <div class="">
-                                            <p class="text-lg-center text-light">
-                                                Hunter x Hunter is set in a world where Hunters exist to perform all
-                                                manner
-                                                of dangerous tasks like capturing criminals and bravely searching for
-                                                lost
-                                                treasures in uncharted territories. Twelve-year-old Gon Freecss is
-                                                determined to become ...
-                                            </p>
-                                        </div>
-                                        <div class="text-center">
-                                            <a type="button" class="btn btn-primary"
-                                               href="{% url 'animeDetails' %}">Details</a>
-                                            <a type="button" class="btn btn-info">Add to list</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card-footer">
-                                    <div class="stats">
-                                        <i class="material-icons">tv</i> Anime
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
-                        <div class="col">
-                            <div class="card card-stats">
-                                <div class="card-header card-header-warning card-header-icon text-left">
-                                    <div class="card-profile">
-                                        <img class="img" src="https://cdn.myanimelist.net/images/anime/11/33657.jpg"
-                                             style="max-width: 200px"/>
-                                    </div>
-                                    <div class="card-body text-center">
-                                        <div class="card-header">
-                                            <h4 class="card-category">Mad House</h4>
-                                            <h3 class="card-title text-light">Hunter x Hunter (2011)</h3>
-                                        </div>
-                                        <div class="">
-                                            <button type="button" class="btn btn-sm btn-primary"><span
-                                                    class="material-icons md-4">tag</span> Action
-                                            </button>
-                                            <button type="button" class="btn btn-sm btn-info"><span
-                                                    class="material-icons md-4">tag</span>Adventure
-                                            </button>
-                                            <button type="button" class="btn btn-sm btn-success"><span
-                                                    class="material-icons md-4">tag</span>Fantasy
-                                            </button>
-                                            <button type="button" class="btn btn-sm btn-danger"><span
-                                                    class="material-icons md-4">tag</span>Shounen
-                                            </button>
-                                            <button type="button" class="btn btn-sm btn-warning"><span
-                                                    class="material-icons md-4">tag</span>Super Power
-                                            </button>
-                                            </br>
-                                            </br>
-                                        </div>
-                                        <div class="">
-                                            <p class="text-lg-center text-light">
-                                                Hunter x Hunter is set in a world where Hunters exist to perform all
-                                                manner
-                                                of dangerous tasks like capturing criminals and bravely searching for
-                                                lost
-                                                treasures in uncharted territories. Twelve-year-old Gon Freecss is
-                                                determined to become ...
-                                            </p>
-                                        </div>
-                                        <div class="text-center">
-                                            <a type="button" class="btn btn-primary"
-                                               href="{% url 'animeDetails' %}">Details</a>
-                                            <a type="button" class="btn btn-info">Add to list</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card-footer">
-                                    <div class="stats">
-                                        <i class="material-icons">tv</i> Anime
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
-                        <div class="col">
-                            <div class="card card-stats">
-                                <div class="card-header card-header-warning card-header-icon text-left">
-                                    <div class="card-profile">
-                                        <img class="img" src="https://cdn.myanimelist.net/images/anime/11/33657.jpg"
-                                             style="max-width: 200px"/>
-                                    </div>
-                                    <div class="card-body text-center">
-                                        <div class="card-header">
-                                            <h4 class="card-category">Mad House</h4>
-                                            <h3 class="card-title text-light">Hunter x Hunter (2011)</h3>
-                                        </div>
-                                        <div class="">
-                                            <button type="button" class="btn btn-sm btn-primary"><span
-                                                    class="material-icons md-4">tag</span> Action
-                                            </button>
-                                            <button type="button" class="btn btn-sm btn-info"><span
-                                                    class="material-icons md-4">tag</span>Adventure
-                                            </button>
-                                            <button type="button" class="btn btn-sm btn-success"><span
-                                                    class="material-icons md-4">tag</span>Fantasy
-                                            </button>
-                                            <button type="button" class="btn btn-sm btn-danger"><span
-                                                    class="material-icons md-4">tag</span>Shounen
-                                            </button>
-                                            <button type="button" class="btn btn-sm btn-warning"><span
-                                                    class="material-icons md-4">tag</span>Super Power
-                                            </button>
-                                            </br>
-                                            </br>
-                                        </div>
-                                        <div class="">
-                                            <p class="text-lg-center text-light">
-                                                Hunter x Hunter is set in a world where Hunters exist to perform all
-                                                manner
-                                                of dangerous tasks like capturing criminals and bravely searching for
-                                                lost
-                                                treasures in uncharted territories. Twelve-year-old Gon Freecss is
-                                                determined to become ...
-                                            </p>
-                                        </div>
-                                        <div class="text-center">
-                                            <a type="button" class="btn btn-primary"
-                                               href="{% url 'animeDetails' %}">Details</a>
-                                            <a type="button" class="btn btn-info">Add to list</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card-footer">
-                                    <div class="stats">
-                                        <i class="material-icons">tv</i> Anime
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
-                        <div class="col">
-                            <div class="card card-stats">
-                                <div class="card-header card-header-warning card-header-icon text-left">
-                                    <div class="card-profile">
-                                        <img class="img" src="https://cdn.myanimelist.net/images/anime/11/33657.jpg"
-                                             style="max-width: 200px"/>
-                                    </div>
-                                    <div class="card-body text-center">
-                                        <div class="card-header">
-                                            <h4 class="card-category">Mad House</h4>
-                                            <h3 class="card-title text-light">Hunter x Hunter (2011)</h3>
-                                        </div>
-                                        <div class="">
-                                            <button type="button" class="btn btn-sm btn-primary"><span
-                                                    class="material-icons md-4">tag</span> Action
-                                            </button>
-                                            <button type="button" class="btn btn-sm btn-info"><span
-                                                    class="material-icons md-4">tag</span>Adventure
-                                            </button>
-                                            <button type="button" class="btn btn-sm btn-success"><span
-                                                    class="material-icons md-4">tag</span>Fantasy
-                                            </button>
-                                            <button type="button" class="btn btn-sm btn-danger"><span
-                                                    class="material-icons md-4">tag</span>Shounen
-                                            </button>
-                                            <button type="button" class="btn btn-sm btn-warning"><span
-                                                    class="material-icons md-4">tag</span>Super Power
-                                            </button>
-                                            </br>
-                                            </br>
-                                        </div>
-                                        <div class="">
-                                            <p class="text-lg-center text-light">
-                                                Hunter x Hunter is set in a world where Hunters exist to perform all
-                                                manner
-                                                of dangerous tasks like capturing criminals and bravely searching for
-                                                lost
-                                                treasures in uncharted territories. Twelve-year-old Gon Freecss is
-                                                determined to become ...
-                                            </p>
-                                        </div>
-                                        <div class="text-center">
-                                            <a type="button" class="btn btn-primary"
-                                               href="{% url 'animeDetails' %}">Details</a>
-                                            <a type="button" class="btn btn-info">Add to list</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card-footer">
-                                    <div class="stats">
-                                        <i class="material-icons">tv</i> Anime
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
-
             </div>
             {% include 'partials/Footer.html' %}
         </div>
