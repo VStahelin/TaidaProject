@@ -7,7 +7,7 @@ from Studio.models import Studio
 class Anime(models.Model):
     mal_id = models.IntegerField(unique=True)
     name = models.CharField(max_length=100)
-    img_url = models.URLField()
+    image_url = models.URLField()
     trailer_url = models.URLField()
     titles = models.TextField()  # Dict '{'title': 'Hunter x Hunter (2011)', 'title_english': 'Hunter x Hunter', 'title_japanese': 'HUNTER×HUNTER（ハンター×ハンター）','title_synonyms': ['HxH (2011)']}'
     type = models.CharField(max_length=5)
@@ -28,3 +28,10 @@ class Studios(models.Model):
     type = models.ForeignKey(Type, on_delete=models.DO_NOTHING)
     anime_mal_id = models.ForeignKey(Anime, on_delete=models.DO_NOTHING)
     studio_mal_id = models.ForeignKey(Studio, on_delete=models.DO_NOTHING)
+
+
+class AnimeCard(models.Model):
+    mal_id = models.IntegerField()
+    title = models.CharField(max_length=100)
+    synopsis = models.TextField()
+    image_url = models.URLField()
