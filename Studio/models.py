@@ -1,12 +1,11 @@
 from django.db import models
 
-from Genres.models import Type
-
 
 class Studio(models.Model):
-    mal_id = models.IntegerField()
-    type = models.ForeignKey(Type, on_delete=models.DO_NOTHING)
-    name = models.CharField(max_length=100)
+    models.AutoField(primary_key=True)
+    mal_id = models.IntegerField(blank=False)
+    type = models.CharField(blank=False, max_length=10)
+    name = models.CharField(blank=False, max_length=100)
 
     def __str__(self):
         return self.name

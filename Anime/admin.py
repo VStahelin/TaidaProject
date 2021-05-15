@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from Anime.models import Anime, Studios
+from Anime.models import Anime, AnimeCard
 
 
 @admin.register(Anime)
@@ -8,6 +8,6 @@ class AnimeAdmin(admin.ModelAdmin):
     list_display = ('id', 'mal_id', 'name', 'type')
 
 
-@admin.register(Studios)
-class StudiosAdmin(admin.ModelAdmin):
-    list_display = ('id', 'type', 'anime_mal_id', 'studio_mal_id')
+@admin.register(AnimeCard)
+class AnimeCardAdmin(admin.ModelAdmin):
+    list_display = ('mal_id', 'title', 'synopsis')

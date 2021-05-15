@@ -1,7 +1,9 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
+from jikanpy import Jikan
 
 from Anime.api.animeSearch import animeSearch
+from Anime.api.manager import generateCardStructure, insertAnime
 
 
 def home(request):
@@ -13,7 +15,10 @@ def test(request):
 
 
 @login_required(login_url='login')
-def animeDetails(request):
+def animeDetails(request, mal_id):
+    jikan = Jikan()
+    anime = jikan.anime(mal_id)
+    insertAnime(anime)
     return render(request, 'anime/AnimeDetails.html')
 
 
@@ -22,10 +27,8 @@ def search(request):
     if request.method == 'POST':
         search_field = request.POST['search_field']
         if request.POST['typeOptions'] == 'anime':
-            list = animeSearch(search_field)
+            list = generateCardStructure(animeSearch(search_field))
             return render(request, 'main/Search.html', {'result': list})
-        else:
-            pass
 
     return render(request, 'main/Search.html')
 

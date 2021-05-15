@@ -1,13 +1,8 @@
 from django.contrib import admin
 
-from Genres.models import Genre, Type
+from Genres.models import Genre
 
 
 @admin.register(Genre)
 class GenreAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'mal_id')
-
-
-@admin.register(Type)
-class TypeAdmin(admin.ModelAdmin):
-    list_display = ('id', 'type_name')
+    list_display = ('mal_id', 'name', 'type')
