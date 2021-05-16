@@ -2,53 +2,54 @@
 {% load static %}
 {% block content %}
     {% include 'partials/HomeBackground.html' %}
-        <div class="d-lg-none">
-            {% include 'partials/MenuLogin.html' %}
+    <div class="d-lg-none">
+        {% include 'partials/MenuLogin.html' %}
+    </div>
+    <div class="wrapper wrapper-full-page">
+        <div class="col-8 ml-auto mr-auto">
+            {% include 'partials/Navlogin.html' %}
         </div>
-        <div class="wrapper wrapper-full-page">
-            <div class="col-8 ml-auto mr-auto">
-                {% include 'partials/Navlogin.html' %}
-            </div>
-            <div class="page-header login-page header-filter ps" style="position: relative">
-                <div class="container-fluid content-center">
-                    <div class="col justify-content-center">
-                        <div class="row">
-                            <div class="ml-auto mr-auto">
-                                <div class="card">
-                                    <div class="card-title">
-                                        <br>
-                                        <div class="row justify-content-center">
-                                            <img class="img-fluid" src="{% static 'img/faviconAho.png' %}" alt="logo"
-                                                 style="max-height: 200px">
-                                            <img class="img-fluid" src="{% static 'img/AhoBox.png' %}" alt="logo">
-                                        </div>
+        <div class="page-header login-page header-filter ps" style="position: relative">
+            <div class="container-fluid content-center">
+                <div class="col justify-content-center">
+                    <div class="row">
+                        <div class="ml-auto mr-auto">
+                            <div class="card">
+                                <div class="card-title">
+                                    <br>
+                                    <div class="row justify-content-center">
+                                        <img class="img-fluid" src="{% static 'img/faviconAho.png' %}" alt="logo"
+                                             style="max-height: 200px">
+                                        <img class="img-fluid" src="{% static 'img/AhoBox.png' %}" alt="logo">
                                     </div>
-                                    <div class="card-body">
-                                        <p>
-                                            <b class="h5 text-light">AhoBox</b> is a totally free and friendly platform
-                                            for you that
-                                            was
-                                            like us that always
-                                            has many animes to watch, many mangas to read, and cannot manage to save all
-                                            those
-                                            titles in an organized way, often losing their names or forgetting that they
-                                            saved
-                                            them in some place to watch later. In <b class="h5 text-light">AhoBox</b>
-                                            you can create
-                                            several custom lists of
-                                            anime, manga or even both together. You record your progress individually by
-                                            title
-                                            by list, you can also share your list with the community or keep it private
-                                            just
-                                            for
-                                            you.
-                                        </p>
-                                        <div class="row justify-content-center">
-                                            <a type="button" class="btn btn-round btn-rose btn-sm"
-                                               href="{% url 'home' %}">See more</a>
+                                </div>
+                                <div class="card-body">
+                                    <p>
+                                        <b class="h5 text-light">AhoBox</b> is a totally free and friendly platform
+                                        for you that
+                                        was
+                                        like us that always
+                                        has many animes to watch, many mangas to read, and cannot manage to save all
+                                        those
+                                        titles in an organized way, often losing their names or forgetting that they
+                                        saved
+                                        them in some place to watch later. In <b class="h5 text-light">AhoBox</b>
+                                        you can create
+                                        several custom lists of
+                                        anime, manga or even both together. You record your progress individually by
+                                        title
+                                        by list, you can also share your list with the community or keep it private
+                                        just
+                                        for
+                                        you.
+                                    </p>
+                                    <div class="row justify-content-center">
+                                        <a type="button" class="btn btn-round btn-rose btn-sm"
+                                           href="{% url 'lists' %}">See more</a>
+                                        {% if not user.is_authenticated %}
                                             <a type="button" class="btn btn-round btn-rose btn-sm"
                                                href="{% url 'register' %}">Register free</a>
-                                        </div>
+                                        {% endif %}
                                     </div>
                                 </div>
                             </div>
@@ -56,6 +57,7 @@
                     </div>
                 </div>
             </div>
+            {% include 'partials/Footer.html' %}
         </div>
     </div>
 {% endblock %}
