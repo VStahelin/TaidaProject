@@ -21,7 +21,9 @@ def insertAnime(values_dict):
     titles = {}
     for key in values_dict:
         if 'title' in key:
-            titles[key] = values_dict.get(key)
+            title = key.split('_')
+            title = title[len(title) - 1].capitalize()
+            titles[title] = values_dict.get(key)
 
     a = Anime.objects.update_or_create(mal_id=values_dict.get('mal_id'))[0]
     a.mal_id = values_dict.get('mal_id')
@@ -29,12 +31,13 @@ def insertAnime(values_dict):
     if not values_dict.get('image_url') is None:
         a.image_url = values_dict.get('image_url')
     if not values_dict.get('trailer_url') is None:
-        a.trailer_url = values_dict.get('trailer_url')
+        a.trailer_url = (values_dict.get('trailer_url')).replace("watch?v=", "embed/")
     a.titles = titles
     a.type = 'AN'
-    a.score = Decimal(values_dict.get('score'))
+    a.score = values_dict.get('score')
     a.scored_by = values_dict.get('scored_by')
-    a.rank = values_dict.get('rank')
+    if not values_dict.get('rank') is None:
+        a.rank = values_dict.get('rank')
     a.episodes = values_dict.get('episodes')
     a.publication_status = values_dict.get('status')
     if not values_dict.get('broadcast') is None:

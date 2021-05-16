@@ -11,11 +11,11 @@
                         <div class="col-md-3">
                             <div class="card card-profile">
                                 <div class="card-header card-header-warning">
-                                    <img class="img" src="https://cdn.myanimelist.net/images/anime/11/33657.jpg"/>
+                                    <img class="img" src="{{ anime.image_url }}"/>
                                 </div>
                                 <div class="card-body">
-                                    <h6 class="card-category">Mad House</h6>
-                                    <h4 class="card-title">Hunter x Hunter (2011)</h4>
+                                    <h6 class="card-category">{{ studios }}</h6>
+                                    <h4 class="card-title">{{ anime.titles.Title }}</h4>
                                     <div class="card-description">
                                         <div class="card-body table-responsive">
                                             <table class="table table-hover">
@@ -24,14 +24,14 @@
                                                 <th>Title</th>
                                                 </thead>
                                                 <tbody>
-                                                <tr>
-                                                    <td>English</td>
-                                                    <td>Hunter x Hunter</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Japanese</td>
-                                                    <td>ハンター×ハンター</td>
-                                                </tr>
+                                                {% for key, value in anime.titles.items %}
+                                                    {% if not forloop.first %}
+                                                        <tr>
+                                                            <td>{{ key }}</td>
+                                                            <td>{{ value }}</td>
+                                                        </tr>
+                                                    {% endif %}
+                                                {% endfor %}
                                                 </tbody>
                                             </table>
                                         </div>
@@ -49,7 +49,7 @@
                                                 <i class="material-icons">trending_up</i>
                                             </div>
                                             <p class="card-category">Rank</p>
-                                            <h3 class="card-title text-light">6</h3>
+                                            <h3 class="card-title text-light">{{ anime.rank }}</h3>
                                         </div>
                                         <div class="card-footer">
                                             <div class="stats">
@@ -65,12 +65,12 @@
                                                 <i class="material-icons">reset_tv</i>
                                             </div>
                                             <p class="card-category">Episodes</p>
-                                            <h3 class="card-title text-light">148
+                                            <h3 class="card-title text-light">{{ anime.episodes }}
                                             </h3>
                                         </div>
                                         <div class="card-footer">
                                             <div class="stats">
-                                                <i class="material-icons">date_range</i> Finished Airing
+                                                <i class="material-icons">date_range</i> {{ anime.publication_status }}
                                             </div>
                                         </div>
                                     </div>
@@ -82,11 +82,11 @@
                                                 <i class="material-icons">score</i>
                                             </div>
                                             <p class="card-category">Score</p>
-                                            <h3 class="card-title text-light">9.09</h3>
+                                            <h3 class="card-title text-light">{{ anime.score }}</h3>
                                         </div>
                                         <div class="card-footer">
                                             <div class="stats">
-                                                <i class="material-icons">how_to_vote</i>1018632 votes
+                                                <i class="material-icons">how_to_vote</i>{{ anime.scored_by }} votes
                                             </div>
                                         </div>
                                     </div>
@@ -99,29 +99,13 @@
                                     </div>
                                     <div class="card-body">
                                         <div class="text-center">
-                                            <button type="button" class="btn btn-primary">Action</button>
-                                            <button type="button" class="btn btn-info">Adventure</button>
-                                            <button type="button" class="btn btn-success">Fantasy</button>
-                                            <button type="button" class="btn btn-danger">Shounen</button>
-                                            <button type="button" class="btn btn-warning">Super Power</button>
+                                            {% for tag in genres %}
+                                                <a role="button" class="btn btn-danger" href="#">{{ tag.name }}</a>
+                                            {% endfor %}
                                         </div>
                                         </br>
                                         <p class="card-description text-light">
-                                            Hunter x Hunter is set in a world where Hunters exist to perform all manner
-                                            of dangerous tasks like capturing criminals and bravely searching for lost
-                                            treasures in uncharted territories. Twelve-year-old Gon Freecss is
-                                            determined to become the best Hunter possible in hopes of finding his
-                                            father, who was a Hunter himself and had long ago abandoned his young son.
-                                            However, Gon soon realizes the path to achieving his goals is far more
-                                            challenging than he could have ever imagined. Along the way to becoming an
-                                            official Hunter, Gon befriends the lively doctor-in-training Leorio,
-                                            vengeful Kurapika, and rebellious ex-assassin Killua. To attain their own
-                                            goals and desires, together the four of them take the Hunter Exam, notorious
-                                            for its low success rate and high probability of death. Throughout their
-                                            journey, Gon and his friends embark on an adventure that puts them through
-                                            many hardships and struggles. They will meet a plethora of monsters,
-                                            creatures, and characters—all while learning what being a Hunter truly
-                                            means. [Written by MAL Rewrite
+                                            {{ anime.synopsis }}
                                         </p>
                                     </div>
                                 </div>
@@ -134,7 +118,7 @@
                                     <div class="card-body text-center">
                                         <div class="embed-responsive embed-responsive-16by9">
                                             <iframe class="embed-responsive-item"
-                                                    src="https://www.youtube.com/embed/D9iTQRB4XRk"
+                                                    src="{{ anime.trailer_url }}"
                                                     allowfullscreen></iframe>
                                         </div>
                                     </div>

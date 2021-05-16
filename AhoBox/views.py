@@ -1,9 +1,13 @@
+import ast
+import json
+
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from jikanpy import Jikan
 
 from Anime.api.animeSearch import animeSearch
 from Anime.api.manager import generateCardStructure, insertAnime
+from Anime.models import Anime
 
 
 def home(request):
@@ -16,10 +20,23 @@ def test(request):
 
 @login_required(login_url='login')
 def animeDetails(request, mal_id):
-    jikan = Jikan()
-    anime = jikan.anime(mal_id)
-    insertAnime(anime)
-    return render(request, 'anime/AnimeDetails.html')
+    if not Anime.objects.filter(mal_id=mal_id).exists():
+        jikan = Jikan()
+        anime = jikan.anime(mal_id)
+        insertAnime(anime)
+
+    anime = Anime.objects.get(mal_id=mal_id)
+    studios = ''
+    anime.titles = ast.literal_eval(anime.titles)
+
+    for a in anime.studios.all():
+        studios = a.name
+
+    genres = []
+    for b in anime.genres.all():
+        genres.append(b.__dict__)
+    print(genres)
+    return render(request, 'anime/AnimeDetails.html', {'anime': anime, 'studios': studios, 'genres':genres})
 
 
 @login_required(login_url='login')

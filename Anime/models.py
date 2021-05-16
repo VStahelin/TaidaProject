@@ -14,7 +14,7 @@ class Anime(models.Model):
     mal_id = models.IntegerField(blank=False, unique=True)
     name = models.CharField(blank=False, max_length=100)
     image_url = models.URLField(blank=True)
-    trailer_url = models.URLField(blank=True, default="https://www.youtube.com/watch?v=0vRJPLNF5Cs")
+    trailer_url = models.URLField(blank=True, default="https://www.youtube.com/embed/0vRJPLNF5Cs")
     titles = models.TextField(blank=True,
                               help_text="{'title': 'Hunter x Hunter (2011)', 'title_english': 'Hunter x Hunter', "
                                         "'title_japanese': 'HUNTER×HUNTER（ハンター×ハンター）','title_synonyms': "
