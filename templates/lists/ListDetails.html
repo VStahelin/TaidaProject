@@ -207,7 +207,7 @@
                                 <div class="card card-stats">
                                     <div class="card-header card-header-warning card-header-icon text-left">
                                         <div class="card-profile">
-                                            <a href="{% url 'animeDetails' %}">
+                                            <a href="{% url 'animeDetails' mal_id=1 %}">
                                                 <img class="img"
                                                      src="https://cdn.myanimelist.net/images/anime/11/33657.jpg"
                                                      style="max-width: 150px"/>
@@ -232,7 +232,7 @@
                                                     </a>
                                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                                         <a class="dropdown-item"
-                                                           href="{% url 'animeDetails' %}">Details</a>
+                                                           href="{% url 'animeDetails' mal_id=1 %}">Details</a>
                                                         <a class="dropdown-item" href="#">Remove from list</a>
                                                     </div>
                                                 </div>
@@ -268,7 +268,7 @@
                                             </div>
                                             <div class="row justify-content-center">
                                                 <a type="button" class="btn btn-round btn-rose btn-sm"
-                                                   href="{% url 'animeDetails' %}">Details</a>
+                                                   href="{% url 'animeDetails' mal_id=1 %}">Details</a>
                                             </div>
                                         </div>
                                     </div>

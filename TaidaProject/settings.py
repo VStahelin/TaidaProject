@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'Anime.apps.AnimeConfig',
     'Studio.apps.StudioConfig',
     'Genres.apps.GenresConfig',
+    'Lists.apps.ListsConfig',
 ]
 
 MIDDLEWARE = [

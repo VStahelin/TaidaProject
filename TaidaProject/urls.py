@@ -5,5 +5,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('AhoBox.urls')),
     path('', include('Users.urls')),
-    path('', include('Anime.urls'))
+    path('', include('Anime.urls')),
+    path('', include('Lists.urls'))
 ]
