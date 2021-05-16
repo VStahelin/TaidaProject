@@ -16,6 +16,8 @@ class AnimeCardList(models.Model):
     anime = models.ForeignKey(Anime, on_delete=models.CASCADE, blank=True)
     status = models.CharField(blank=False, max_length=2, choices=Status.choices, default=Status.TO_WATCH)
     last_episode_watched = models.IntegerField(blank=True, default=0)
+    image_url = models.URLField(blank=True)
+    studio = models.CharField(blank=False, max_length=100, default='Unknown')
 
     def __str__(self):
         return self.anime.name
