@@ -28,7 +28,7 @@ class Anime(models.Model):
     publication_status = models.CharField(blank=True, max_length=255, default='')
     broadcast = models.CharField(blank=True, max_length=100, default='')
     genres = models.ManyToManyField(Genre, blank=True)
-    synopsis = models.TextField(blank=True, default='')
+    synopsis = models.TextField(blank=True, default='No synopsis')
     studios = models.ManyToManyField(Studio, blank=True)
     last_update = models.DateField(default=timezone.now, blank=True)
 
@@ -41,3 +41,6 @@ class AnimeCard(models.Model):
     title = models.CharField(max_length=100)
     synopsis = models.TextField()
     image_url = models.URLField()
+
+
+
