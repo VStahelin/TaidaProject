@@ -6,85 +6,103 @@
         <div class="main-panel">
             {% include 'partials/Nav.html' %}
             <div class="content">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="card card-nav-expand">
-                            <div class="card-header card-header-warning h3">Finder</div>
-                            <div class="card-body text-center">
-                                <form class="form" method="POST" action="{% url 'search' %}">
-                                    {% csrf_token %}
-                                    <div class="input-group rounded">
-                                        <div class="col-sm-12">
-                                            <input type="text" name="search_field" class="form-control rounded"
-                                                   placeholder="Search"
-                                                   aria-label="Search" aria-describedby="search-addon" required/>
-                                        </div>
-                                        <div class="col-sm-12">
-                                            <div class="form-check form-check-radio form-check-inline">
-                                                <label class="form-check-label">
-                                                    <input class="form-check-input" type="radio" name="typeOptions"
-                                                           value="anime" required>
-                                                    Anime
-                                                    <span class="circle"><span class="check"></span></span>
-                                                </label>
+                <div class="col">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card card-nav-expand">
+                                <div class="card-header card-header-warning h3">Finder</div>
+                                <div class="card-body text-center">
+                                    <form class="form" method="POST" action="{% url 'search' %}">
+                                        {% csrf_token %}
+                                        <div class="input-group rounded">
+                                            <div class="col-sm-12">
+                                                <input type="text" name="search_field" class="form-control rounded"
+                                                       placeholder="Search"
+                                                       aria-label="Search" aria-describedby="search-addon" required/>
                                             </div>
-                                            <div class="form-check form-check-radio form-check-inline">
-                                                <label class="form-check-label">
-                                                    <input class="form-check-input" type="radio" name="typeOptions"
-                                                           value="manga">
-                                                    Manga
-                                                    <span class="circle"><span class="check"></span></span>
-                                                </label>
+                                            <div class="col-sm-12">
+                                                <div class="form-check form-check-radio form-check-inline">
+                                                    <label class="form-check-label">
+                                                        <input class="form-check-input" type="radio" name="typeOptions"
+                                                               value="anime" required checked>
+                                                        Anime
+                                                        <span class="circle"><span class="check"></span></span>
+                                                    </label>
+                                                </div>
+                                                <div class="form-check form-check-radio form-check-inline">
+                                                    <label class="form-check-label">
+                                                        <input class="form-check-input" type="radio" name="typeOptions"
+                                                               value="manga">
+                                                        Manga
+                                                        <span class="circle"><span class="check"></span></span>
+                                                    </label>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-sm-12 justify-content-center">
-                                            <button type="submit" class="btn btn-round btn-rose btn-sm">Search</button>
-                                        </div>
-                                    </div>
-                            </div>
-                        </div>
-                        </form>
-                    </div>
-                </div>
-                <div class="row">
-                    {% for anime in result %}
-                        <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
-                            <div class="col">
-                                <div class="card card-stats">
-                                    <div class="card-header card-header-warning card-header-icon text-left">
-                                        <div class="card-profile">
-                                            <img class="img" src="{{ anime.image_url }}"
-                                                 style="max-width: 200px"/>
-                                        </div>
-                                        <div class="card-body text-center">
-                                            <div class="card-header">
-                                                <h3 class="card-title text-light">{{ anime.title }}</h3>
-                                            </div>
-                                            <div class="">
-                                                <p class="text-lg-center text-light">
-                                                    {% if not anime.synopsis %}
-                                                        Synopsis unavailable
-                                                    {% else %}
-                                                        {{ anime.synopsis }}
-                                                    {% endif %}
-                                                </p>
-                                            </div>
-                                            <div class="text-center">
-                                                <a type="button" class="btn btn-primary"
-                                                   href="{% url 'animeDetails' mal_id=anime.mal_id %}">Details</a>
-                                                <a type="button" class="btn btn-info">Add to list</a>
+                                            <div class="col-sm-12 justify-content-center">
+                                                <button type="submit" class="btn btn-round btn-rose btn-sm">Search
+                                                </button>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="card-footer">
-                                        <div class="stats">
-                                            <i class="material-icons">tv</i> Anime
-                                        </div>
-                                    </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
-                    {% endfor %}
+                    </div>
+                    <div class="row">
+                        {% if not result %}
+                            <div class="col d-flex justify-content-center">
+                                <div class="card" style="width: 35rem;">
+                                    <div class="card-body">
+                                        <h4 class="card-title text-light text-center mb-3">Try searching for an anime or
+                                            manga in the search field above</h4>
+                                        <img src="{% static 'img/svg/undraw_searching_p5ux.svg' %}" class="img-fluid"
+                                             alt="Responsive image">
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        {% else %}
+                            {% for anime in result %}
+                                <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
+                                    <div class="col">
+                                        <div class="card card-stats">
+                                            <div class="card-header card-header-warning card-header-icon text-left">
+                                                <div class="card-profile">
+                                                    <img class="img" src="{{ anime.image_url }}"
+                                                         style="max-width: 200px"/>
+                                                </div>
+                                                <div class="card-body text-center">
+                                                    <div class="card-header">
+                                                        <h3 class="card-title text-light">{{ anime.title }}</h3>
+                                                    </div>
+                                                    <div class="">
+                                                        <p class="text-lg-center text-light">
+                                                            {% if not anime.synopsis %}
+                                                                Synopsis unavailable
+                                                            {% else %}
+                                                                {{ anime.synopsis }}
+                                                            {% endif %}
+                                                        </p>
+                                                    </div>
+                                                    <div class="text-center">
+                                                        <a type="button" class="btn btn-primary"
+                                                           href="{% url 'animeDetails' mal_id=anime.mal_id %}">Details</a>
+                                                        <a type="button" class="btn btn-info">Add to list</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card-footer">
+                                                <div class="stats">
+                                                    <i class="material-icons">tv</i> Anime
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
                 </div>
             </div>
             {% include 'partials/Footer.html' %}
