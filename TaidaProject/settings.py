@@ -1,4 +1,5 @@
 import os
+import sys
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -24,12 +25,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'AhoBox.apps.AhoboxConfig',
-    'Users.apps.UsersConfig',
-    'Anime.apps.AnimeConfig',
-    'Studio.apps.StudioConfig',
-    'Genres.apps.GenresConfig',
-    'Lists.apps.ListsConfig',
+    'apps.AhoBox.apps.AhoboxConfig',
+    'apps.Users.apps.UsersConfig',
+    'apps.Anime.apps.AnimeConfig',
+    'apps.Studio.apps.StudioConfig',
+    'apps.Genres.apps.GenresConfig',
+    'apps.Lists.apps.ListsConfig',
 ]
 
 MIDDLEWARE = [
@@ -112,4 +113,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'TaidaProject/static')
 ]
 
-DEFAULT_AUTO_FIELD='django.db.models.AutoField'
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
+
+APPS_DIR = os.path.join(BASE_DIR, 'apps/')
+sys.path.insert(0, APPS_DIR)
